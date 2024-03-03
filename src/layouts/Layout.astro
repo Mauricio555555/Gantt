@@ -1,7 +1,8 @@
 ---
-import AddTask from '../components/AddTasks.astro';
+import AddTask from "../components/AddTasks.astro";
+
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -9,20 +10,25 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />		
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>		
-		<link rel="stylesheet" type="text/css" href="src/components/style/gantt.css" />
-	</head>
-	<body>
-		<AddTask/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="src/components/style/gantt.css"
+    />
+  </head>
+  <body>
+    <AddTask />
 
-		<div id="gantt"></div>
-		<script type="text/javascript" src="src/scripts/gantt.js"></script>
-		<script type="text/javascript" src="src/scripts/agregarTarea.js"></script>
-	</body>
+    <div id="gantt"></div>
+    <!-- Scripts -->
+    <script type="text/javascript" src="/scripts/gantt.js"></script>
+    <script type="text/javascript" src="/scripts/agregarTarea.js"></script>
+  </body>
 </html>

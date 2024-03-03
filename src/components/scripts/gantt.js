@@ -1,4 +1,4 @@
-class Gantt {
+export class Gantt {
   constructor() {
     this.tasks = [];
     this.dateWidth = 178;
