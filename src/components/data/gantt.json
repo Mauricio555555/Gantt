@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "taskName": "Tarea 1",
+      "startDate": "2024-03-01",
+      "endDate": "2024-03-05",
+      "color": "#4287f5",
+      "completion": 80
+    },
+    {
+      "taskName": "Tarea 2",
+      "startDate": "2024-03-03",
+      "endDate": "2024-03-07",
+      "color": "#f54242",
+      "completion": 50
+    }
+  ]
+}
