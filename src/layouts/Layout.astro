@@ -1,5 +1,4 @@
 ---
-import Gantt from '../components/Gantt.astro';
 import AddTask from '../components/AddTasks.astro';
 interface Props {
 	title: string;
@@ -23,6 +22,7 @@ const { title } = Astro.props;
 		<AddTask/>
 
 		<div id="gantt"></div>
+		<script type="text/javascript" src="src/scripts/gantt.js"></script>
+		<script type="text/javascript" src="src/scripts/agregarTarea.js"></script>
 	</body>
 </html>
-
