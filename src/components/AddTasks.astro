@@ -1,29 +1,66 @@
 ---
-
+import { addTask } from './scripts/agregarTarea.js'; // Importa la función addTask desde agregarTarea.js
 ---
-    <!-- Botón para desplegar el formulario de nueva tarea -->
-    <div>
-      <button id="showFormButton">Agregar nueva tarea</button>
-      <!-- Formulario para agregar nuevas tareas -->
-      <form id="taskForm" style="display: none;">
-          <!-- Contenido del formulario aquí -->
-          <label for="taskName">Nombre de la tarea:</label>
-          <input type="text" id="taskName" name="taskName" required /><br />
-      
-          <label for="startDate">Fecha de inicio:</label>
-          <input type="date" id="startDate" name="startDate" required /><br />
-      
-          <label for="endDate">Fecha de finalización:</label>
-          <input type="date" id="endDate" name="endDate" required /><br />
-      
-          <label for="color">Color:</label>
-          <input type="color" id="color" name="color" value="#4287f5" /><br />
-      
-          <label for="completion">Porcentaje completado:</label>
-          <input type="number" id="completion" name="completion" min="0" max="100" required /><br />
-      
-          <!-- Agregamos el objeto `obj` como un parámetro -->
-          <button type="button" onclick="addTask(obj)">Agregar tarea</button>
-      </form>
-      
-  </div>
+<!-- Botón para desplegar el formulario de nueva tarea -->
+<div>
+  <button id="showFormButton" onclick="toggleForm()">Agregar nueva tarea</button>
+  <!-- Formulario para agregar nuevas tareas -->
+  <form id="taskForm" style="display: none;">
+      <!-- Contenido del formulario aquí -->
+      <label for="taskName">Nombre de la tarea:</label>
+      <input type="text" id="taskName" name="taskName" required /><br />
+
+      <label for="startDate">Fecha de inicio:</label>
+      <input type="date" id="startDate" name="startDate" required /><br />
+
+      <label for="endDate">Fecha de finalización:</label>
+      <input type="date" id="endDate" name="endDate" required /><br />
+
+      <label for="color">Color:</label>
+      <input type="color" id="color" name="color" value="#4287f5" /><br />
+
+      <label for="completion">Porcentaje completado:</label>
+      <input type="number" id="completion" name="completion" min="0" max="100" required /><br />
+
+      <!-- Agregamos el objeto `obj` como un parámetro -->
+      <button type="button" onclick="submitTask()">Agregar tarea</button>
+  </form>
+</div>
+
+<script>
+  // Función para mostrar/ocultar el formulario
+  function toggleForm() {
+    var form = document.getElementById('taskForm');
+    if (form.style.display === 'none') {
+      form.style.display = 'block';
+    } else {
+      form.style.display = 'none';
+    }
+  }
+
+  // Función para obtener los datos del formulario y llamar a la función addTask del agregarTarea.js
+  function submitTask() {
+    var taskName = document.getElementById('taskName').value;
+    var startDate = document.getElementById('startDate').value;
+    var endDate = document.getElementById('endDate').value;
+    var color = document.getElementById('color').value;
+    var completion = document.getElementById('completion').value;
+
+    var task = {
+      taskName: taskName,
+      startDate: startDate,
+      endDate: endDate,
+      color: color,
+      completion: completion
+    };
+
+    // Llama a la función addTask del agregarTarea.js pasando el objeto task como parámetro
+    addTask(task);
+
+    // Limpia el formulario después de agregar la tarea
+    document.getElementById('taskForm').reset();
+
+    // Oculta el formulario después de agregar la tarea
+    toggleForm();
+  }
+</script>
